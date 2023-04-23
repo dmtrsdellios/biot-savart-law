@@ -5,7 +5,7 @@ Create interactive Biot-Savart law representations.
 This repository provides a solution for the magnetic field for current carrying wires of any shape or size based on the 
 Biot-Savart law.
 
-![img.png](img.png)
+![img.png](resources/img.png)
 
 ---
 ### Prerequisites
