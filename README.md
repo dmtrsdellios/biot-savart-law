@@ -21,7 +21,7 @@ To run this code you must follow the steps below:
   - [Windows installation](https://phoenixnap.com/kb/install-pip-windows)
   - [Linux installation](https://www.odoo.com/forum/help-1/how-to-install-pip-in-python-3-on-ubuntu-18-04-167715)
 
-#### Install all libraries
+#### Install all necessary libraries
 
 - Run:
 ```
@@ -38,11 +38,20 @@ python3 main.py
 ```
 
 Upon running, the user will receive a few options: 
-1. Create and save a 2d plot of the current density
-2. Create and save a 3d plot of the magnetic field
+1. Create and save a 2D plot of the current density
+2. Create and save a 3D plot of the magnetic field
 3. Do both
 4. Exit the program
 
 Both plots are saved in the `plots/` directory.
 
-The 3d plot is saved in `html` format, so you need to open it with a popular browser, like `Chrome`
+The 3D plot is saved in `html` format, so you need to open it with a popular browser, like `Chrome`.
+
+---
+
+### Acknowledgements
+
+Massive kudos @lukepolson for his code and general contribution to Medical Physics.
+Most of the code here is inspired from [his](https://github.com/lukepolson/youtube_channel) repo.
+
+Don't forget to check out his amazing [YouTube channel](https://www.youtube.com/@MrPSolver).
