@@ -3,16 +3,18 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 from current import calculate_current
+from defaults import CURRENT_PLOT_FILE, MAGNETIC_FIELD_PLOT_FILE
 from magnetic_field import calculate_magnetic_field
 
 
-def calculate_plot(phi):
+def calculate_2d_plot(phi):
     lx, ly, lz = calculate_current(phi)
 
     plt.figure(figsize=(7, 7))
     plt.plot(lx, ly)
     plt.xlabel('$x/R$', fontsize=25)
     plt.ylabel('$y/R$', fontsize=25)
+    save_2d_plot(CURRENT_PLOT_FILE)
     plt.show()
 
 
@@ -42,7 +44,7 @@ def calculate_3d_plot(phi):
     fig.add_scatter3d(x=lx, y=ly, z=lz, mode='lines',
                       line=dict(color='green', width=10))
 
-    fig.write_html('3dplot.html')
+    save_3d_plot(MAGNETIC_FIELD_PLOT_FILE, fig)
 
 
 def calculate_plot_data(xv, yv, zv, Bx, By, Bz):
@@ -63,3 +65,23 @@ def calculate_plot_layout():
                                   camera_eye=dict(x=1.2, y=1.2, z=1.2)))
 
     return layout
+
+
+def save_2d_plot(default_file_name):
+    print("Please select current(I) plot file name (leave empty for default):")
+    file_name = input()
+
+    if not file_name:
+        plt.savefig(default_file_name)
+    else:
+        plt.savefig(file_name)
+
+
+def save_3d_plot(default_file_name, figure):
+    print("Please select magnetic(B) field plot file name (leave empty for default):")
+    file_name = input()
+
+    if not file_name:
+        figure.write_html(default_file_name)
+    else:
+        figure.write_html(file_name)
